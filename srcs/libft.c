@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 20:35:39 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/09 17:18:06 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 09:19:03 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,14 @@ int	size_calc(long int n)
 	return (digits);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int n, char *result)
 {
-	char	*result;
+	//char	*result;
 	int		len;
 	long	num;
 
 	num = (long)n;
 	len = size_calc(num);
-	result = (char *)malloc(sizeof(char) * (len + 1));
-	if (!result)
-		return (NULL);
 	result[len] = '\0';
 	if (num == 0)
 		result[0] = '0';

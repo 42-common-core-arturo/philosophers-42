@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 20:54:12 by artclave          #+#    #+#             */
-/*   Updated: 2024/04/14 23:03:50 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 08:40:05 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,13 @@ void	ft_usleep(t_long total, t_data *data)
 	remaining = end - ft_get_time();
 	while (remaining > 0)
 	{
-		//if (m_read_int(&data->end, &data->mutex_end) == TRUE)
-		//	return ;
+		pthread_mutex_lock(&(data->mutex_print));
+		if (data->end == TRUE)
+		{
+			pthread_mutex_unlock(&(data->mutex_print));
+			return ;
+		}
+		pthread_mutex_unlock(&(data->mutex_print));
 		remaining = end - ft_get_time();
 		if (remaining > 10000)
 			usleep(10000);
