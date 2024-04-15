@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 16:30:13 by artclave          #+#    #+#             */
-/*   Updated: 2024/04/15 05:34:24 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 09:19:59 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ typedef struct s_data
 	pthread_mutex_t	mutex_forks[200];
 	pthread_mutex_t	mutex_meals;
 	pthread_mutex_t	mutex_print;
-	pthread_mutex_t	mutex_end;
 	int				end;
 	int				total_philo;
 	t_long			tm_die;
@@ -77,7 +76,7 @@ typedef struct s_data
 
 void		check_input(int ac, char **av);
 t_data		*get_data(char **av);
-void		ft_exit(int error_code);
+void		ft_exit(int error_code, t_data *data);
 long long	ft_atoi_long(char *str);
 void		start_mutexes(t_data *data);
 void		end_mutexes(t_data *data);
@@ -86,8 +85,11 @@ void		end_threads(t_data *data);
 t_long		ft_get_time(void);
 void		ft_usleep(t_long total, t_data *data);
 void		*group_dinner(void *args);
-char		*ft_itoa(int n);
+char		*ft_itoa(int n, char *result);
 void		ft_putstr_fd(char *s, int fd);
 void		check_end_dinner(t_data *data);
+int			is_dead(t_philo *philo, t_data *data);
+void		dinner_for_one(t_data *data);
+void		m_print(t_philo *philo, char *message);
 
 #endif

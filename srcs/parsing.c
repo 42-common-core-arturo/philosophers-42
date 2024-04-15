@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:00:13 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 05:53:22 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 09:08:29 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 /// @param av array of strings from main input
 void	init_data(t_data *data, char **av)
 {
-
 	data->tm_start = ft_get_time();
 	data->total_philo = ft_atoi_long(av[1]);
 	if (data->total_philo < 1)
-		ft_exit(INPUT_ERROR);
+		ft_exit(INPUT_ERROR, NULL);
 	data->end = FALSE;
 	data->tm_die = ft_atoi_long(av[2]);
 	data->tm_eat = ft_atoi_long(av[3]);
@@ -46,11 +45,9 @@ void	init_philo(t_data *data)
 	{
 		data->philo[i].id = i + 1;
 		data->philo[i].fork1 = i - (i % 2);
-		printf("philo[%d] -> f1[%d], ", data->philo[i].id, data->philo[i].fork1);
 		data->philo[i].fork2 = i - 1 + (i % 2);
 		if (data->philo[i].fork2 < 0)
 			data->philo[i].fork2 = data->total_philo - 1;
-		printf("f2[%d]\n", data->philo[i].fork2);
 		data->philo[i].thread = 0;
 		data->philo[i].meals = 0;
 		data->philo[i].last_meal_tm = data->tm_start;
@@ -68,7 +65,7 @@ t_data	*get_data(char **av)
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
-		ft_exit(MALLOC_ERROR);
+		ft_exit(MALLOC_ERROR, NULL);
 	init_data(data, av);
 	init_philo(data);
 	return (data);
@@ -86,13 +83,13 @@ void	check_input(int ac, char **av)
 	t_long	num;
 
 	if (ac != 5 && ac != 6)
-		ft_exit(AC_ERROR);
+		ft_exit(AC_ERROR, NULL);
 	i = 0;
 	while (++i < ac)
 	{
 		num = ft_atoi_long(av[i]);
 		if (((i < 5) && i > 1 && (int)num < MIN_TIME)
 			|| (i == 1 && ((int)num < 1 || (int)num > 200)))
-			ft_exit(INPUT_ERROR);
+			ft_exit(INPUT_ERROR, NULL);
 	}
 }

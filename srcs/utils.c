@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:02:46 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 03:51:01 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 09:24:53 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
  * @param clean clean list
  * @param error_code exit code and also type of error
  */
-void	ft_exit(int error_code)
+void	ft_exit(int error_code, t_data *data)
 {
+	if (data)
+		free(data);
 	if (error_code == AC_ERROR)
 		ft_putstr_fd("Invalid number of arguments\n", 2);
 	if (error_code == INPUT_ERROR)
@@ -63,4 +65,17 @@ long long	ft_atoi_long(char *str)
 	if (str[i] || num <= 0)
 		return (-1);
 	return (num);
+}
+
+void	dinner_for_one(t_data *data)
+{
+	pthread_mutex_init(&(data->mutex_print), NULL);
+	m_print(&data->philo[0], " has taken a fork\n");
+	while (1)
+	{
+		if (is_dead(&(data->philo[0]), data) == TRUE)
+			break ;
+	}
+	pthread_mutex_destroy(&(data->mutex_print));
+	ft_exit(EXIT_SUCCESS, data);
 }
