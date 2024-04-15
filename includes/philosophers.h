@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 16:30:13 by artclave          #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:59 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 10:54:06 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ void		check_end_dinner(t_data *data);
 int			is_dead(t_philo *philo, t_data *data);
 void		dinner_for_one(t_data *data);
 void		m_print(t_philo *philo, char *message);
+void		ft_print(t_philo *philo, char *message);
 
 #endif
