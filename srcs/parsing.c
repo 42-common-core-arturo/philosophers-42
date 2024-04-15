@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:00:13 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 09:08:29 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 10:55:19 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	init_data(t_data *data, char **av)
 	data->tm_die = ft_atoi_long(av[2]);
 	data->tm_eat = ft_atoi_long(av[3]);
 	data->tm_sleep = ft_atoi_long(av[4]);
-	if (data->total_philo % 2)
-		data->tm_think = (data->tm_eat * 3) - data->tm_sleep - 50;
+	if (data->total_philo % 2 && (int)(data->tm_eat * 3) \
+		- ((int)data->tm_eat + (int)data->tm_sleep) - 20 > 15)
+		data->tm_think = (data->tm_eat * 3) - \
+		(data->tm_eat + data->tm_sleep) - 20;
 	else
 		data->tm_think = 0;
 	data->meals_max = 0;

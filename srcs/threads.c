@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:14:50 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 08:03:54 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 10:55:32 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	start_threads(t_data *data)
 		if (pthread_create(&(data->philo[i].thread), NULL, group_dinner, \
 		(void *)&(data->philo[i])) != 0)
 			ft_exit(THREAD_ERROR, data);
-		//if (pthread_detach(data->philo[i].thread) != 0)
-		//	ft_exit(THREAD_ERROR, data);
 	}
 }
 

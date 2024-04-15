@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 20:35:39 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 09:19:03 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 10:55:55 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int	size_calc(long int n)
 
 char	*ft_itoa(int n, char *result)
 {
-	//char	*result;
 	int		len;
 	long	num;
 

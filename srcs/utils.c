@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:02:46 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 09:24:53 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 10:53:35 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,19 @@ void	dinner_for_one(t_data *data)
 	}
 	pthread_mutex_destroy(&(data->mutex_print));
 	ft_exit(EXIT_SUCCESS, data);
+}
+
+void	ft_print(t_philo *philo, char *message)
+{
+	char	str[100];
+
+	if (philo->data->end == TRUE)
+	{
+		pthread_mutex_unlock(&(philo->data->mutex_print));
+		return ;
+	}
+	ft_putstr_fd(ft_itoa((int)(ft_get_time() - philo->data->tm_start), str), 1);
+	ft_putstr_fd(" ", 1);
+	ft_putstr_fd(ft_itoa((int)philo->id, str), 1);
+	ft_putstr_fd(message, 1);
 }

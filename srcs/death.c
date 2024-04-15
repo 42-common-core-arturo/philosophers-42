@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:41:51 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 09:24:19 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 10:58:19 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_dead(t_philo *philo, t_data *data)
 	ft_putstr_fd(ft_itoa((int)(ft_get_time() - philo->data->tm_start), str), 1);
 	ft_putstr_fd(" ", 1);
 	ft_putstr_fd(ft_itoa((int)philo->id, str), 1);
-	ft_putstr_fd(" is dead\n", 1);
+	ft_putstr_fd(" died\n", 1);
 	pthread_mutex_unlock(&(philo->data->mutex_print));
 	return (TRUE);
 }
@@ -35,7 +35,7 @@ void	check_end_dinner(t_data *data)
 	int	i;
 	int	all_full;
 
-	all_full = 0; 
+	all_full = 0;
 	while (all_full < data->total_philo)
 	{
 		i = -1;
