@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 16:30:13 by artclave          #+#    #+#             */
-/*   Updated: 2024/04/15 10:54:06 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/17 02:51:52 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
-# include <stdio.h> //DELETE
 
 // -- GENERAL DEFINES --
 # define TRUE 1
