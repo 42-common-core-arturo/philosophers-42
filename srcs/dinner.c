@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:32:29 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 10:52:47 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 16:40:37 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_prep(t_philo *philo)
 	philo->last_meal_tm = ft_get_time();
 	pthread_mutex_unlock(&(philo->data->mutex_meals));
 	if (philo->id % 2)
-		ft_usleep(30, philo->data);
+		ft_usleep(philo->data->tm_eat - 5, philo->data);
 }
 
 void	*group_dinner(void *args)

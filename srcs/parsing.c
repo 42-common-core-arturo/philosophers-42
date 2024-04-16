@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:00:13 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 10:55:19 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/17 02:39:47 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 /// @param av array of strings from main input
 void	init_data(t_data *data, char **av)
 {
+	long long tm_left;
+
 	data->tm_start = ft_get_time();
 	data->total_philo = ft_atoi_long(av[1]);
 	if (data->total_philo < 1)
@@ -25,12 +27,11 @@ void	init_data(t_data *data, char **av)
 	data->tm_die = ft_atoi_long(av[2]);
 	data->tm_eat = ft_atoi_long(av[3]);
 	data->tm_sleep = ft_atoi_long(av[4]);
-	if (data->total_philo % 2 && (int)(data->tm_eat * 3) \
-		- ((int)data->tm_eat + (int)data->tm_sleep) - 20 > 15)
-		data->tm_think = (data->tm_eat * 3) - \
-		(data->tm_eat + data->tm_sleep) - 20;
-	else
+	tm_left = ((data->tm_die - (data->tm_sleep + data->tm_sleep)) * 0.5);
+	data->tm_think = ((data->tm_die - (data->tm_sleep + data->tm_sleep)) * 0.5);
+	if (tm_left < 0)
 		data->tm_think = 0;
+	printf("tm to think %llu\ntm left: %lld\n\n", data->tm_think, tm_left);
 	data->meals_max = 0;
 	if (av[5])
 		data->meals_max = ft_atoi_long(av[5]);
