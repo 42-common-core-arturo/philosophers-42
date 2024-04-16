@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 22:00:13 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/17 02:39:47 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/17 02:52:28 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_data(t_data *data, char **av)
 	data->tm_think = ((data->tm_die - (data->tm_sleep + data->tm_sleep)) * 0.5);
 	if (tm_left < 0)
 		data->tm_think = 0;
-	printf("tm to think %llu\ntm left: %lld\n\n", data->tm_think, tm_left);
+	//printf("tm to think %llu\ntm left: %lld\n\n", data->tm_think, tm_left);
 	data->meals_max = 0;
 	if (av[5])
 		data->meals_max = ft_atoi_long(av[5]);
