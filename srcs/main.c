@@ -6,7 +6,7 @@
 /*   By: arturo <arturo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/14 21:58:53 by arturo            #+#    #+#             */
-/*   Updated: 2024/04/15 08:04:00 by arturo           ###   ########.fr       */
+/*   Updated: 2024/04/15 16:50:59 by arturo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int	main(int ac, char **av)
 	check_end_dinner(data);
 	end_threads(data);
 	end_mutexes(data);
+	printf("tm to think %llu\n", data->tm_think);
 	free(data);
 }
